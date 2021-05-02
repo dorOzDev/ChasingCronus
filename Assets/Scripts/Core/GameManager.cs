@@ -1,11 +1,23 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Cards;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace ChasingCronus.Core
+namespace Assets.Scripts.Core
 {
-    public class GameManager : ScriptableObject
+    public class GameManager : MonoBehaviour
     {
+        private const string defualtCardsPath = "Game/Cards/CardData";
+        private void Start()
+        {
+            // TODO Instantiate cards
+            Card[] prefabsArray = Resources.LoadAll<Card>(defualtCardsPath);
+            foreach(Card prefab in prefabsArray)
+            {
+
+            }
+        }
 
         public int GameGoal { private set; get; }
 
