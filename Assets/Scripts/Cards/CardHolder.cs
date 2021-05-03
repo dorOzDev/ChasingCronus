@@ -9,6 +9,7 @@ namespace Assets.Scripts.Cards
 {
     class CardHolder : MonoBehaviour
     {
-        [SerializeField] Card card;
+        public Card card;
+        public int cardNumber;
     }
 }
