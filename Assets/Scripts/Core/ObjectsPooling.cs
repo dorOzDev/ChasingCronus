@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Core
 {
-    [CreateAssetMenu(fileName = "Object pooling instance", menuName = "ScriptableObjects/Create object pooling instance")]
-    class ObjectsPooling: ScriptableObject
+    class ObjectsPooling: MonoBehaviour
     {
         [SerializeField]
         private int initialAmountToPool;
 
         [SerializeField]
-        private GameObject inactiveCardsHolder;
-
-        [SerializeField]
-        private GameObject activeCardsHolder;
-
-        [SerializeField]
         private GameObject gameObjectPrefab;
 
         private Stack<GameObject> pooledObjects;
+
 
         private void Awake()
         {
@@ -34,12 +24,11 @@ namespace Assets.Scripts.Core
         {
             GameObject temp;
 
-            for (int i = 0; i < initialAmountToPool; ++i)
+            for (int i = 0; i < amount; ++i)
             {
-                temp = Instantiate(gameObjectPrefab, inactiveCardsHolder.transform);
-                temp.transform.parent = inactiveCardsHolder.transform;
+                temp = Instantiate(gameObjectPrefab, transform);
                 temp.SetActive(false);
-                pooledObjects.Push(temp.GetComponent<GameObject>());
+                pooledObjects.Push(temp);
             }
         }
 
@@ -56,7 +45,6 @@ namespace Assets.Scripts.Core
             for (int i = 0; i < amount; ++i)
             {
                 temp = pooledObjects.Pop();
-                temp.transform.parent = activeCardsHolder.transform;
                 gameObjectList.Add(temp);
             }
 

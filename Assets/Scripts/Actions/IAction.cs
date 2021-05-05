@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Actions
 {
-    interface IAction
+    public interface IAction
     {
         void DoAction();
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Animations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,26 @@ namespace Assets.Scripts.Cards
 {
     class CardHolder : MonoBehaviour
     {
-        public Card card;
+        [NonSerialized]
+        public CardData card;
+
+        [NonSerialized]
         public int cardNumber;
+
+        private FlipCardAnimation flipCard;
+
+        private void Awake()
+        {
+            flipCard = GetComponent<FlipCardAnimation>();
+        }
+        public void OnCardClicked()
+        {
+            SetFrontSprite();
+        }
+
+        private void SetFrontSprite()
+        {
+            flipCard.FlipCard();
+        }
     }
 }

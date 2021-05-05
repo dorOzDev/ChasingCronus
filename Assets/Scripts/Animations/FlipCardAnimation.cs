@@ -40,7 +40,11 @@ namespace Assets.Scripts.Animations
 
         public void FlipCard(Sprite frontCard)
         {
-            this.frontCard = frontCard;
+            this.frontCard = defaultFront;
+
+            if (frontCard != null)
+                this.frontCard = frontCard;
+
             if (!isFlipping)
                 StartCoroutine(FullyFlipCard());
         }

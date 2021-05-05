@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc5e5311c1e069e41ba7c5c1ff597ce4, type: 3}
-  m_Name: Zeus card
+  m_Name: Cronous Card
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 0}
-  amount: 2
-  cardType: 2
+  amount: 1
+  cardType: 3
