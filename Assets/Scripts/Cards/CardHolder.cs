@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Animations;
+﻿using Assets.Scripts.Actions;
+using Assets.Scripts.Animations;
+using Assets.Scripts.GameLogics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +12,40 @@ namespace Assets.Scripts.Cards
 {
     class CardHolder : MonoBehaviour
     {
-        [NonSerialized]
-        public CardData card;
+
+        [SerializeField]
+        private IPositioner positioner;
 
         [NonSerialized]
         public int cardNumber;
 
         private FlipCardAnimation flipCard;
 
+        public delegate void OnActionSelectedDelegate(IAction action);
+        public static OnActionSelectedDelegate OnActionSelectedEvent;
+
         private void Awake()
         {
             flipCard = GetComponent<FlipCardAnimation>();
+            positioner = GameObject.FindGameObjectWithTag("Positioner").GetComponent<IPositioner>();
         }
         public void OnCardClicked()
         {
-            SetFrontSprite();
+            CardData cardData = positioner.GetCardDataAtPosition(cardNumber);
+            if(cardData == null)
+            {
+                Debug.LogError("Something went wrong getting card data at position: " + cardNumber);
+                return;
+            }
+
+            FlipCard(cardData.FrontSprite);
+            print(cardData.CardType);
+            OnActionSelectedEvent?.Invoke(cardData.Action);
         }
 
-        private void SetFrontSprite()
+        private void FlipCard(Sprite frontSprite)
         {
-            flipCard.FlipCard();
+            flipCard.FlipCard(frontSprite);
         }
     }
 }

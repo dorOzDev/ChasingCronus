@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.GameData
 {
-
     public interface IGameDataProvider <T>
     {
         int GetGameCardsCount();
