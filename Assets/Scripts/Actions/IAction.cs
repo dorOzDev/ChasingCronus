@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Actions
 {
-    public interface IAction
+    public abstract class BaseAction : MonoBehaviour
     {
-        void DoAction();
+        public abstract void DoAction();
     }
 }

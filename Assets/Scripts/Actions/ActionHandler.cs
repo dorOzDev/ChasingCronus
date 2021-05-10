@@ -20,7 +20,7 @@ namespace Assets.Scripts.Actions
             CardHolder.OnActionSelectedEvent += PerformAction;
         }
 
-        private void PerformAction(IAction action)
+        private void PerformAction(BaseAction action)
         {
             action.DoAction();
         }

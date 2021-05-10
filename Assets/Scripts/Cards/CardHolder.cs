@@ -21,7 +21,7 @@ namespace Assets.Scripts.Cards
 
         private FlipCardAnimation flipCard;
 
-        public delegate void OnActionSelectedDelegate(IAction action);
+        public delegate void OnActionSelectedDelegate(BaseAction action);
         public static OnActionSelectedDelegate OnActionSelectedEvent;
 
         private void Awake()
@@ -39,7 +39,6 @@ namespace Assets.Scripts.Cards
             }
 
             FlipCard(cardData.FrontSprite);
-            print(cardData.CardType);
             OnActionSelectedEvent?.Invoke(cardData.Action);
         }
 

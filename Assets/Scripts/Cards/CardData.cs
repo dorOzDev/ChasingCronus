@@ -18,8 +18,8 @@ namespace Assets.Scripts.Cards
         public Sprite FrontSprite => frontSprite;
 
         [SerializeField]
-        private IAction action;
-        public IAction Action => action;
+        private BaseAction action;
+        public BaseAction Action => action;
 
         [Tooltip("The amount of generated card of the same type")]
         [SerializeField]
@@ -36,6 +36,7 @@ namespace Assets.Scripts.Cards
         Empty,
         Normal,
         Zeus,
-        Cronous
+        Cronous,
+        WinMoney
     }
 }
