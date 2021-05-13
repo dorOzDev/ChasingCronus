@@ -16,6 +16,8 @@ namespace Assets.Scripts.Cards
         [SerializeField]
         private IPositioner positioner;
 
+        private GameObject actionsHolder;
+
         [NonSerialized]
         public int cardNumber;
 
@@ -24,10 +26,13 @@ namespace Assets.Scripts.Cards
         public delegate void OnActionSelectedDelegate(BaseAction action);
         public static OnActionSelectedDelegate OnActionSelectedEvent;
 
+        private BaseAction action;
+
         private void Awake()
         {
             flipCard = GetComponent<FlipCardAnimation>();
             positioner = GameObject.FindGameObjectWithTag("Positioner").GetComponent<IPositioner>();
+            actionsHolder = GameObject.FindGameObjectWithTag("ActionsHolder");
         }
         public void OnCardClicked()
         {
@@ -39,7 +44,18 @@ namespace Assets.Scripts.Cards
             }
 
             FlipCard(cardData.FrontSprite);
-            OnActionSelectedEvent?.Invoke(cardData.Action);
+            InstantiateAction(cardData.ActionPrefab);
+            OnActionSelectedEvent?.Invoke(action);
+        }
+
+        private void InstantiateAction(BaseAction actionPrefab)
+        {
+            action = Instantiate(actionPrefab);
+
+            if(actionsHolder != null)
+            {
+                action.transform.parent = actionsHolder.transform;
+            }
         }
 
         private void FlipCard(Sprite frontSprite)

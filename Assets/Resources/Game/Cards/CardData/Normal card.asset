@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Normal Card
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 0}
+  actionPrefab: {fileID: 1834421747921209125, guid: e69dfc1231515dd4e821fc6ad2bf16be,
+    type: 3}
   amount: 10
   cardType: 1

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Zeus card
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 0}
+  actionPrefab: {fileID: 9058242166524312236, guid: ffbcd316824afd649b5c2d59318c92ac,
+    type: 3}
   amount: 2
   cardType: 2

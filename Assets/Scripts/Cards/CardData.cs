@@ -18,8 +18,9 @@ namespace Assets.Scripts.Cards
         public Sprite FrontSprite => frontSprite;
 
         [SerializeField]
-        private BaseAction action;
-        public BaseAction Action => action;
+        private BaseAction actionPrefab;
+
+        public BaseAction ActionPrefab => actionPrefab;
 
         [Tooltip("The amount of generated card of the same type")]
         [SerializeField]

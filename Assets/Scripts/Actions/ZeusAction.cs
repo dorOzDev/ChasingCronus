@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Assets.Scripts.Actions
 {
-    public abstract class BaseAction : MonoBehaviour
+    class ZeusAction : BaseAction
     {
-        public abstract void DoAction();
+        public override void DoAction()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

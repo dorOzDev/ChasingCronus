@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.ActionsHandlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Assets.Scripts.Actions
         public int MoneyToWin => moneyToWin;
         public override void DoAction()
         {
-            throw new NotImplementedException();
+            moneyActionHandler.AddCurrency(moneyToWin);
         }
     }
 }

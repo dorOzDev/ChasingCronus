@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Actions
 {
-    class ActionHandler : MonoBehaviour
+    class ActionsHandler : MonoBehaviour
     {
         private void OnEnable()
         {
@@ -24,6 +24,5 @@ namespace Assets.Scripts.Actions
         {
             action.DoAction();
         }
-
     }
 }

@@ -52,7 +52,6 @@ namespace Assets.Scripts.GameLogics
                     mapPositionToCardData.Add(indexArray[index], card);
                     index++;
                 }
-
             }
         }
 
