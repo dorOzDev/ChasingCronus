@@ -10,7 +10,7 @@ namespace Assets.Scripts.Actions
     {
         public override void DoAction()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   frontSprite: {fileID: 0}
   actionPrefab: {fileID: 8883061601664322817, guid: 98be50090b63c2444a1bb81401e02df3,
     type: 3}
-  amount: 3
+  amount: 10
   cardType: 4
