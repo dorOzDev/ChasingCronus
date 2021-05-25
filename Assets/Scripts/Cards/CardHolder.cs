@@ -26,6 +26,9 @@ namespace Assets.Scripts.Cards
         public delegate void OnActionSelectedDelegate(BaseAction action);
         public static OnActionSelectedDelegate OnActionSelectedEvent;
 
+        public delegate void OnCardClickedDelegate(CardHolder cardHolder);
+        public static OnCardClickedDelegate OnCardClickedEvent;
+
         private BaseAction action;
 
         private void Awake()
@@ -36,6 +39,7 @@ namespace Assets.Scripts.Cards
         }
         public void OnCardClicked()
         {
+            OnCardClickedEvent?.Invoke(this);
             CardData cardData = positioner.GetCardDataAtPosition(cardNumber);
             if(cardData == null)
             {

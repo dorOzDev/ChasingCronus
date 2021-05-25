@@ -18,27 +18,13 @@ namespace Assets.Scripts.GameLogics
 
         private RNGCryptoServiceProvider rnd = new RNGCryptoServiceProvider();
 
+        private int[] cardsArray;
+
         private void Awake()
         {
             gameDataProvider = ScriptableObject.CreateInstance<LocalGameDataProvider>();
-            InitializeMap();
+            cardsArray = Enumerable.Range(0, gameDataProvider.GetGameCardsCount()).ToArray();
         }
-
-        private void InitializeMap()
-        {
-            int[] array = Enumerable.Range(0, gameDataProvider.GetGameCardsCount()).ToArray();
-
-            ShuffleArray(array, 2);
-            GeneratePositionMap(array);
-        }
-    // For debug purposes, may safely delete
-/*        private void PrintMap()
-        {
-            foreach(KeyValuePair<int, CardData> entry in mapPositionToCardData)
-            {
-                print(entry.Key + " to " + entry.Value.CardType);
-            }
-        }*/
 
         private void GeneratePositionMap(int[] indexArray)
         {
@@ -91,6 +77,12 @@ namespace Assets.Scripts.GameLogics
             }
 
             return cardData;
+        }
+
+        public void ResetCardsPositions()
+        {
+            ShuffleArray(cardsArray, 2);
+            GeneratePositionMap(cardsArray);
         }
     }
 }

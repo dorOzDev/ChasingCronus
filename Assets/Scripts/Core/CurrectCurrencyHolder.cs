@@ -18,9 +18,9 @@ namespace Assets.Scripts.Core
             currCurency += amount;
         }
 
-        public void ResetCurrency()
+        public void LostCurrency(float amount)
         {
-            currCurency = 0f;
+            currCurency = Math.Max(0, currCurency - amount);
         }
     }
 }

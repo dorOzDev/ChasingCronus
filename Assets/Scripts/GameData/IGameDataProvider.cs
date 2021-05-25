@@ -11,5 +11,7 @@ namespace Assets.Scripts.GameData
         int GetGameCardsCount();
 
         List<T> GetAllCardsList();
+
+        float GetSingleGameCost();
     }
 }

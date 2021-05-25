@@ -11,7 +11,10 @@ namespace Assets.Scripts.GameData
     class LocalGameDataProvider : ScriptableObject, IGameDataProvider<CardData>
     {
         Dictionary<CardType, CardData> mapTypeToCardData = new Dictionary<CardType, CardData>();
+
         private const string defualtCardsPath = "Game/Cards/CardData/";
+
+        private float gameCost = 0.25f;
 
         private void Awake()
         {
@@ -42,6 +45,11 @@ namespace Assets.Scripts.GameData
         public List<CardData> GetAllCardsList()
         {
             return mapTypeToCardData.Values.ToList();
+        }
+
+        public float GetSingleGameCost()
+        {
+            return gameCost;
         }
     }
 }

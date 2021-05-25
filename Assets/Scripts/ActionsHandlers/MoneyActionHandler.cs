@@ -1,11 +1,6 @@
 ﻿using Assets.Scripts.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Assets.Scripts.GameData;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.ActionsHandlers
@@ -16,20 +11,22 @@ namespace Assets.Scripts.ActionsHandlers
 
         [SerializeField]
         CurrectCurrencyHolder currencyHolder;
+
+        private LocalGameDataProvider gameDataProvider;
         private void Awake()
         {
             moneyText = GetComponent<Text>();
+            gameDataProvider = ScriptableObject.CreateInstance<LocalGameDataProvider>();
         }
 
         private void Start()
         {
-            currencyHolder.ResetCurrency();
-            UpdateUI();
+
         }
 
         public void Lose()
         {
-            currencyHolder.ResetCurrency();
+            currencyHolder.LostCurrency(gameDataProvider.GetSingleGameCost());
             UpdateUI();
         }
 
